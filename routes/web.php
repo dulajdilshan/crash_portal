@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/g', function () {
     return view('welcome');
 });
 
@@ -22,3 +22,17 @@ Route::get('/dash',function(){
 Route::get('/master',function(){
     return view('layouts/master');
 });
+
+Route::get('master',function(){
+    return view('layouts/master');
+});
+
+Route::get('/crashes',function(){
+    return view('developer/basic-table');
+});
+
+
+Route::get('/',function(){
+    return view('developer/login');
+});
+

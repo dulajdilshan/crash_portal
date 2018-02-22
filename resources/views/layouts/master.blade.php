@@ -42,6 +42,7 @@
         <div class="wrapper">
             @include('layouts.sidebar')
             @include('layouts.topbar')
+
             
 
         <!-- Navigation -->
@@ -52,7 +53,7 @@
 
             <div class="page-wrapper">
                 <div class="container-fluid">
-
+                    @include('developer.home')
                 </div>
             </div>
         </div>

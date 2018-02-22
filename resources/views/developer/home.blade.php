@@ -20,7 +20,7 @@
                         <div class="white-box">
                             <div class="col-in row">
                                 <div class="col-md-6 col-sm-6 col-xs-6"> <i data-icon="E" class="linea-icon linea-basic"></i>
-                                    <h5 class="text-muted vb">MYNEW CLIENTS</h5> </div>
+                                    <h5 class="text-muted vb">Your Crashes</h5> </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h3 class="counter text-right m-t-15 text-danger">23</h3> </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -37,7 +37,7 @@
                         <div class="white-box">
                             <div class="col-in row">
                                 <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe01b;"></i>
-                                    <h5 class="text-muted vb">NEW PROJECTS</h5> </div>
+                                    <h5 class="text-muted vb">Total Crashes</h5> </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h3 class="counter text-right m-t-15 text-megna">169</h3> </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -54,7 +54,7 @@
                         <div class="white-box">
                             <div class="col-in row">
                                 <div class="col-md-6 col-sm-6 col-xs-6"> <i class="linea-icon linea-basic" data-icon="&#xe00b;"></i>
-                                    <h5 class="text-muted vb">NEW INVOICES</h5> </div>
+                                    <h5 class="text-muted vb">New Messages</h5> </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <h3 class="counter text-right m-t-15 text-primary">157</h3> </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <h3 class="box-title">Sales Difference</h3>
+                            <h3 class="box-title">Status</h3>
                             <ul class="list-inline text-right">
                                 <li>
                                     <h5><i class="fa fa-circle m-r-5" style="color: #dadada;"></i>Site A View</h5>
@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">Recent sales
+                            <h3 class="box-title">Recent Crashes
                                 <div class="col-md-2 col-sm-4 col-xs-12 pull-right">
                                     <select class="form-control pull-right row b-none">
                                         <option>March 2016</option>
@@ -104,57 +104,57 @@
                                 <table class="table ">
                                     <thead>
                                         <tr>
-                                            <th>NAME</th>
+                                            <th>CRASH NAME</th>
                                             <th>STATUS</th>
                                             <th>DATE</th>
-                                            <th>PRICE</th>
+                                            <th>Enrollemmt</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="txt-oflo">Pixel admin</td>
-                                            <td>SALE</td>
+                                            <td class="txt-oflo">Lyrics not loading</td>
+                                            <td>45</td>
                                             <td class="txt-oflo">April 18</td>
-                                            <td><span class="text-success">$24</span></td>
+                                            <td><span class="text-success">34</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="txt-oflo">Real Homes</td>
-                                            <td>EXTENDED</td>
+                                            <td class="txt-oflo">Buttons no working</td>
+                                            <td>34</td>
                                             <td class="txt-oflo">April 19</td>
-                                            <td><span class="text-info">$1250</span></td>
+                                            <td><span class="text-info">50</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="txt-oflo">Medical Pro</td>
-                                            <td>TAX</td>
+                                            <td class="txt-oflo">not loading editot</td>
+                                            <td>12</td>
                                             <td class="txt-oflo">April 20</td>
-                                            <td><span class="text-danger">-$24</span></td>
+                                            <td><span class="text-danger">-24</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="txt-oflo">Hosting press</td>
-                                            <td>SALE</td>
+                                            <td class="txt-oflo">Keyboard not working</td>
+                                            <td>56</td>
                                             <td class="txt-oflo">April 21</td>
-                                            <td><span class="text-success">$24</span></td>
+                                            <td><span class="text-success">24</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="txt-oflo">Helping Hands</td>
-                                            <td>MEMBER</td>
+                                            <td class="txt-oflo">symbols</td>
+                                            <td>33</td>
                                             <td class="txt-oflo">April 22</td>
-                                            <td><span class="text-success">$24</span></td>
+                                            <td><span class="text-success">24</span></td>
                                         </tr>
                                         <tr>
                                             <td class="txt-oflo">Digital Agency</td>
-                                            <td>SALE</td>
+                                            <td>22</td>
                                             <td class="txt-oflo">April 23</td>
-                                            <td><span class="text-danger">-$14</span></td>
+                                            <td><span class="text-danger">-14</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="txt-oflo">Helping Hands</td>
-                                            <td>MEMBER</td>
+                                            <td class="txt-oflo">Help not loading</td>
+                                            <td>21</td>
                                             <td class="txt-oflo">April 22</td>
-                                            <td><span class="text-success">$64</span></td>
+                                            <td><span class="text-success">64</span></td>
                                         </tr>
                                     </tbody>
-                                </table> <a href="#">Check all the sales</a> </div>
+                                </table> <a href="#">See All</a> </div>
                         </div>
                     </div>
                 </div>
