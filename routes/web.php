@@ -16,5 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dash',function(){
-    return view('developer/dashboard');
+    return view('developer/home');
+});
+
+Route::get('/master',function(){
+    return view('layouts/master');
 });
