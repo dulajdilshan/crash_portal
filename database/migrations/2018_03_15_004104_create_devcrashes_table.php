@@ -14,7 +14,10 @@ class CreateDevcrashesTable extends Migration
     public function up()
     {
         Schema::create('devcrashes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unique();
+            $table->integer('dev_id');
+            $table->string('status');
+            $table->integer('progress');
             $table->timestamps();
         });
     }
