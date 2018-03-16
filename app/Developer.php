@@ -19,4 +19,9 @@ class Developer extends Model
     {
         return $this->hasOne('App\DevDetail','developer_id');
     }
+
+    public function crashesInfo()
+    {
+        return $this->hasMany('App\DevCrash','dev_id');
+    }
 }
