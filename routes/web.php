@@ -10,9 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Developer;
+use App\DevDetail;
 
 Route::get('/g', function () {
-    return view('welcome');
+    $dev = Developer::find(2);
+    echo $dev->details->github_link;
 });
 
 Route::get('/dash',function(){
@@ -33,6 +36,6 @@ Route::get('/crashes',function(){
 
 
 Route::get('/',function(){
-    return view('developer/login');
+    return view('welcome');
 });
 

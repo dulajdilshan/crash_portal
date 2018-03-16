@@ -14,10 +14,10 @@ class CreateDevdetailsTable extends Migration
     public function up()
     {
         Schema::create('devdetails', function (Blueprint $table) {
-            $table->integer('developer_id')->unique();
-            $table->string('github_link');
-            $table->string('linkedin_link');
-            $table->string('fb_link');
+            $table->integer('developer_id')->unsigned()->unique();
+            $table->string('github_link')->nullable();
+            $table->string('linkedin_link')->nullable();
+            $table->string('fb_link')->nullable();
             $table->timestamps();
         });
     }

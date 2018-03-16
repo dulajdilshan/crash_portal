@@ -3,10 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Developer extends Model
 {
     protected $table = 'developers';
+
+    protected $fillable =[
+
+        'name', 'email' , 'password'
+
+    ];
 
     public function details()
     {
