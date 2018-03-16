@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Crash::class, function (Faker $faker) {
     return [
         'crash_name'=> $faker->name,
-        'description'=>$faker->text,
+        'description'=>str_random(10),
         'uploaded_by'=>$faker->userName,
     ];
 });
