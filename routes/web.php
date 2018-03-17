@@ -13,6 +13,10 @@
 use App\Developer;
 use App\DevDetail;
 
+Route::get('/',function(){
+    return view('welcome');
+});
+
 Route::get('/g', function () {
     $dev = Developer::find(2);
     echo $dev->details->github_link;
@@ -31,11 +35,8 @@ Route::get('master',function(){
 });
 
 Route::get('/crashes',function(){
-    return view('developer/basic-table');
+    $crashes = App\Crash::all();
+    return view('developer/crashes',['crashes' => $crashes]);
 });
 
-
-Route::get('/',function(){
-    return view('welcome');
-});
 
