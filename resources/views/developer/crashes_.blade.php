@@ -21,7 +21,7 @@
 
 <body>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="blue" data-image="../assets/img/sidebar-1.jpg">
         <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -154,7 +154,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header" data-background-color="purple">
+                            <div class="card-header" data-background-color="">
                                 <h4 class="title">Simple Table</h4>
                                 <p class="category">Here is a subtitle for this table</p>
                             </div>
