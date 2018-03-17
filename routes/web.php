@@ -39,4 +39,9 @@ Route::get('/crashes',function(){
     return view('developer/crashes',['crashes' => $crashes]);
 });
 
+Route::get('/crashes_',function(){
+    $crashes = App\Crash::all();
+    return view('developer/crashes_',['crashes' => $crashes]);
+});
+
 
