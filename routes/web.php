@@ -34,9 +34,9 @@ Route::get('master',function(){
     return view('layouts/master');
 });
 
-Route::get('/crashes',function(){
+Route::get('/developer/crashes',function(){
     $crashes = App\Crash::all();
-    return view('developer/crashes',['crashes' => $crashes]);
+    return view('developer/crashes',['crashes' => $crashes,'active'=>'crashes']);
 });
 
 Route::get('/crashes_',function(){

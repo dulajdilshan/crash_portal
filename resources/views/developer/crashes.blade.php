@@ -3,7 +3,7 @@
 @section('header')
     {{--Header--}}
     <nav class="navbar navbar-transparent navbar-absolute">
-        @include('layouts.header')
+        @include('developer.includes.navbar')
     </nav>
 @endsection
 
@@ -33,7 +33,7 @@
                                         <td>{{$crash->crash_name}}</td>
                                         {{--  <td>{{$crash->description}}</td>  --}}
                                         <td>{{$crash->uploaded_by}}</td>
-                                        <td class="text-primary">Dulaj</td>
+                                    <td class="text-primary">{{$crash->id}}</td>
                                     </tr>
                                     @endforeach
 
@@ -51,6 +51,6 @@
 @section('footer')
     {{--Footer--}}
     <footer class="footer">
-        @include('layouts.footer')
+        @include('developer.includes.footer')
     </footer>
 @endsection
