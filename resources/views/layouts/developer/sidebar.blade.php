@@ -12,28 +12,25 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="active">
+                <li class="{{$sdashboard}}">
                     <a href="dashboard.html">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="active">
+                <li class="{{$smyprofile}}">
                     <a href="./user.html">
                         <i class="material-icons">person</i>
                         <p>My Profile</p>
                     </a>
                 </li>
-                <li class=
-                    @if($active=='crashes')
-                        
-                >
+            <li class="{{$scrashes}}">
                     <a href="./table.html">
                         <i class="material-icons">content_paste</i>
                         <p>Crashes</p>
                     </a>
                 </li>
-                <li class="">
+            <li class="{{$smycrashes}}">
                     <a href="./typography.html">
                         <i class="material-icons">library_books</i>
                         <p>My Crashes</p>

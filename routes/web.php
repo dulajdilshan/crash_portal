@@ -36,12 +36,12 @@ Route::get('master',function(){
 
 Route::get('/developer/crashes',function(){
     $crashes = App\Crash::all();
-    return view('developer/crashes',['crashes' => $crashes,'active'=>'crashes']);
+    return view('developer/crashes',['crashes' => $crashes,'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive']);
 });
 
-Route::get('/crashes_',function(){
+Route::get('/developer/myprofile',function(){
     $crashes = App\Crash::all();
-    return view('developer/crashes_',['crashes' => $crashes]);
+    return view('developer/myprofile',['crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active']);
 });
 
 
