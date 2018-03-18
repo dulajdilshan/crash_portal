@@ -13,25 +13,25 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="{{$sdashboard}}">
-                    <a href="dashboard.html">
+                    <a href="dash">
                         <i class="material-icons">dashboard</i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="{{$smyprofile}}">
-                    <a href="./user.html">
+                    <a href="myprofile">
                         <i class="material-icons">person</i>
                         <p>My Profile</p>
                     </a>
                 </li>
             <li class="{{$scrashes}}">
-                    <a href="./table.html">
+                    <a href="crashes">
                         <i class="material-icons">content_paste</i>
                         <p>Crashes</p>
                     </a>
                 </li>
             <li class="{{$smycrashes}}">
-                    <a href="./typography.html">
+                    <a href="mycrashes">
                         <i class="material-icons">library_books</i>
                         <p>My Crashes</p>
                     </a>

@@ -44,4 +44,9 @@ Route::get('/developer/myprofile',function(){
     return view('developer/myprofile',['crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active']);
 });
 
+Route::get('/developer/dash',function(){
+    $crashes = App\Crash::all();
+    return view('developer/dash',['crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive']);
+});
+
 
