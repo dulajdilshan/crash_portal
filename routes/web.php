@@ -13,7 +13,7 @@
 use App\Developer;
 
 Route::get('/',function(){
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/g', function () {
