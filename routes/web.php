@@ -39,4 +39,11 @@ Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
 Route::get('/developer/dash','DeveloperController@viewDashboard');
 Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
+//Admin Routes
+Route::get('/admin/crashes','AdminController@viewCrashesBoard');
+Route::get('/admin/myprofile','AdminController@viewMyprofile');
+Route::get('/admin/dash','AdminController@viewDashboard');
+Route::get('/admin/developers_manager','AdminController@viewDevelopersManager');
+//Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
+
 

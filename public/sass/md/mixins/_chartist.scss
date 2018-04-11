@@ -56,7 +56,7 @@ $ct-bar-width: 10px !default;
 // Donut width (If donut width is to big it can cause issues where the shape gets distorted)
 $ct-donut-width: 60px !default;
 
-// If set to true it will include the default classes and generate CSS output. If you're planning to use the mixins you
+// If set to true it will includes the default classes and generate CSS output. If you're planning to use the mixins you
 // should set this property to false
 $ct-include-classes: true !default;
 
@@ -64,7 +64,7 @@ $ct-include-classes: true !default;
 // properties below
 $ct-include-colored-series: $ct-include-classes !default;
 
-// If set to true this will include all responsive container variations using the scales defined at the top of the script
+// If set to true this will includes all responsive container variations using the scales defined at the top of the script
 $ct-include-alternative-responsive-containers: $ct-include-classes !default;
 
 // Series names and colors. This can be extended or customized as desired. Just add more series and colors.

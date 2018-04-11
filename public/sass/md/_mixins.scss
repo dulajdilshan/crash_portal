@@ -39,7 +39,7 @@
 }
 
 //@mixin text-variations($component, $selector-suffix, $color-default) {
-//  @include generic-variations($component, $selector-suffix, $color-default, "text-variations-content", null);
+//  @includes generic-variations($component, $selector-suffix, $color-default, "text-variations-content", null);
 //}
 //
 //@mixin text-variations-content($args) {
@@ -120,7 +120,7 @@
   }
 }
 
-// interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
+// interpolation of mixin-name is not allowed evidently, so we statically includes based on the mixin-name given
 @mixin call-variations-content-mixin($args) {
   $mixin-name: map-get($args, mixin-name);
   @if $mixin-name == variations-content {
@@ -158,7 +158,7 @@
 
 @mixin generic-variations($component, $selector-suffix, $color-default, $mixin-name, $mdb-param-1) {
 
-  //setup map to pass parameters (instead of the incredibly long-error-prone list for each and every @include)
+  //setup map to pass parameters (instead of the incredibly long-error-prone list for each and every @includes)
   $args: (
           //extra: $selector-suffix,
           //default: $color-default,

@@ -1,12 +1,4 @@
-@extends('layouts.master_layout')
-
-@section('header')
-    {{--Header--}}
-    <nav class="navbar navbar-transparent navbar-absolute">
-        @include('developer.includes.navbar')
-    </nav>
-@endsection
-
+@extends('layouts.admin.admin_layout')
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -118,11 +110,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('footer')
-    {{--Footer--}}
-    <footer class="footer">
-        @include('developer.includes.footer')
-    </footer>
 @endsection

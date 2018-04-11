@@ -9,7 +9,7 @@ class DeveloperController extends Controller
 {
     public function viewCrashesBoard(){
         $crashes = Crash::all();
-        return view('developer/crashes',
+        return view('developer.crashes',
             [
                 'crashes' => $crashes,'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
             ]);
@@ -17,7 +17,7 @@ class DeveloperController extends Controller
 
     public function viewMyprofile(){
         $crashes = Crash::all();
-        return view('developer/myprofile',
+        return view('developer.myprofile',
             [
                 'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active'
             ]);
@@ -25,7 +25,7 @@ class DeveloperController extends Controller
 
     public function viewDashboard(){
         $crashes = Crash::all();
-        return view('developer/dash',
+        return view('developer.dash',
             [
                 'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive'
             ]);
@@ -33,7 +33,7 @@ class DeveloperController extends Controller
 
     public function viewMycrashes(){
         $crashes = Crash::all();
-        return view('developer/dash',
+        return view('developer.mycrashes',
             [
                 'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive'
             ]);

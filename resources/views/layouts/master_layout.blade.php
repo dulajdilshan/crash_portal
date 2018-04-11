@@ -24,7 +24,7 @@
 
     {{--  sidebar  --}}
     <div class="sidebar" data-color="blue" data-image="../assets/img/sidebar-1.jpg">
-        @include('layouts.developer.sidebar')
+        @yield('sidebar')
     </div>
 
     <div class="main-panel">

@@ -172,7 +172,7 @@
   }
 
   .#{$ct-class-chart-bar}.#{$ct-class-horizontal-bars} .#{$ct-class-label}.#{$ct-class-vertical}.#{$ct-class-start} {
-    //@include ct-chart-label($ct-text-color, $ct-text-size, center, $ct-vertical-text-justify);
+    //@includes ct-chart-label($ct-text-color, $ct-text-size, center, $ct-vertical-text-justify);
     @include ct-align-justify(center, flex-end);
     // Fallback for browsers that don't support foreignObjects
     text-anchor: end;
