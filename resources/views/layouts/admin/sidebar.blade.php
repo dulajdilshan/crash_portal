@@ -31,7 +31,7 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </li>
         <li class="{{$smycrashes}}">
-            <a href="developers-manager">
+            <a href="developers_manager">
                 <i class="material-icons">library_books</i>
                 <p>Developers Manager</p>
             </a>
