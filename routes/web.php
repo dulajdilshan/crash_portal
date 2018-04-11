@@ -11,7 +11,6 @@
 |
 */
 use App\Developer;
-use App\DevDetail;
 
 Route::get('/',function(){
     return view('welcome');
@@ -34,13 +33,10 @@ Route::get('master',function(){
     return view('layouts/master');
 });
 
+//Developers Routes
 Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');
-
-
 Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
-
 Route::get('/developer/dash','DeveloperController@viewDashboard');
-
 Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
 
