@@ -34,24 +34,13 @@ Route::get('master',function(){
     return view('layouts/master');
 });
 
-Route::get('/developer/crashes',function(){
-    $crashes = App\Crash::all();
-    return view('developer/crashes',['crashes' => $crashes,'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive']);
-});
+Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');
 
-Route::get('/developer/myprofile',function(){
-    $crashes = App\Crash::all();
-    return view('developer/myprofile',['crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active']);
-});
 
-Route::get('/developer/dash',function(){
-    $crashes = App\Crash::all();
-    return view('developer/dash',['crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive']);
-});
+Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
 
-Route::get('/developer/mycrashes',function(){
-    $crashes = App\Crash::all();
-    return view('developer/dash',['crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive']);
-});
+Route::get('/developer/dash','DeveloperController@viewDashboard');
+
+Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
 
