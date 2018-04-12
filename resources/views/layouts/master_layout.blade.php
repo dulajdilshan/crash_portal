@@ -20,6 +20,7 @@
 </head>
 
 <body>
+@yield('login-page')
 <div class="wrapper">
 
     {{--  sidebar  --}}
