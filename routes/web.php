@@ -34,12 +34,14 @@ Route::get('master',function(){
 });
 
 //Developers Routes
+Route::get('/developer','DeveloperController@index');
 Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');
 Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
 Route::get('/developer/dash','DeveloperController@viewDashboard');
 Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
 //Admin Routes
+Route::get('/admin','AdminController@index');
 Route::get('/admin/crashes','AdminController@viewCrashesBoard');
 Route::get('/admin/myprofile','AdminController@viewMyprofile');
 Route::get('/admin/dash','AdminController@viewDashboard');

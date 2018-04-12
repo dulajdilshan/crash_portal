@@ -8,6 +8,9 @@ class AdminController extends Controller
 {
 
     //View
+    public function index(){
+        return redirect('admin/dash');
+    }
     public function viewCrashesBoard(){
         $crashes = Crash::all();
         return view('admin.crashes',
