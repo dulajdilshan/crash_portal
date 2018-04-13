@@ -13,19 +13,48 @@
                             <div class="card-content table-responsive">
                                 <table class="table table-hover">
                                     <thead class="text-primary" style="color: slategrey">
+                                    <th>ID</th>
                                     <th>Crash Name</th>
                                     {{--  <th>Description</th>  --}}
                                     <th>Uploaded By</th>
+                                    <th>Progress</th>
+                                    <th></th>
+                                    <th>Controls</th>
                                     <th>Assigned to</th>
                                     </thead>
                                     <tbody>
 
                                     @foreach($crashes as $crash)
                                     <tr>
+                                        <td class="text-primary">{{$crash->id}}</td>
                                         <td>{{$crash->crash_name}}</td>
                                         {{--  <td>{{$crash->description}}</td>  --}}
                                         <td>{{$crash->uploaded_by}}</td>
-                                    <td class="text-primary">{{$crash->id}}</td>
+                                        <td>
+                                            <div class="progress progress-line-primary">
+                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                                                    {{--<span class="sr-only">80% Complete</span>--}} 60%
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm btn-success" >
+                                                <i class="material-icons">remove_red_eye</i> View
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm btn-blue">
+                                                <i class="material-icons">build</i>Edit</button>
+                                            <button class="btn btn-primary btn-sm btn-rose">
+                                                <i class="material-icons">delete</i>Delete</button>
+                                            <button class="btn btn-primary btn-sm btn-rose">
+                                                <i class="material-icons">rowing</i>Assign Myself</button>
+                                        </td>
+                                        <td></td>
+                                        {{--<td><button class="btn btn-primary btn-fab btn-round">--}}
+                                            {{--<i class="material-icons">edit</i>--}}
+                                            {{--<div class="ripple-container"></div>--}}
+                                        {{--</button></td>--}}
                                     </tr>
                                     @endforeach
 

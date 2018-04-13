@@ -14,4 +14,9 @@ class DevCrash extends Model
         'dev_id' ,'status' , 'progress' 
     
     ];
+
+    public function developer()
+    {
+        return $this->hasMany('App\Developer','id','dev_id');
+    }
 }

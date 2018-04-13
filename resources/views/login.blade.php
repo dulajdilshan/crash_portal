@@ -10,7 +10,7 @@
     <script src="{{asset('js/login.js')}}"></script>
     <div class="login-page">
         <div class="form">
-            <form class="register-form" method="POST" action="{{route('login')}}">
+            <form class="register-form" method="POST" action="">
                 <input type="text" placeholder="name"/>
                 <input type="password" placeholder="password"/>
                 <input type="text" placeholder="email address"/>

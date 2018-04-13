@@ -7,13 +7,19 @@ use App\Crash;
 
 class DeveloperController extends Controller
 {
+    public function __construct()
+    {
+//        $this->middleware('auth');
+    }
 
     //view
-    public function index(){
+    public function index()
+    {
 
         return redirect('developer/dash');
     }
-    public function viewCrashesBoard(){
+    public function viewCrashesBoard()
+    {
         $crashes = Crash::all();
         return view('developer.crashes',
             [
@@ -21,7 +27,8 @@ class DeveloperController extends Controller
             ]);
     }
 
-    public function viewMyprofile(){
+    public function viewMyprofile()
+    {
         $crashes = Crash::all();
         return view('developer.myprofile',
             [
@@ -29,7 +36,8 @@ class DeveloperController extends Controller
             ]);
     }
 
-    public function viewDashboard(){
+    public function viewDashboard()
+    {
         $crashes = Crash::all();
         return view('developer.dash',
             [
@@ -37,7 +45,8 @@ class DeveloperController extends Controller
             ]);
     }
 
-    public function viewMycrashes(){
+    public function viewMycrashes()
+    {
         $crashes = Crash::all();
         return view('developer.mycrashes',
             [
