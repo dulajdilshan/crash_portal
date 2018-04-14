@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDevcrashesTable extends Migration
+class CreateCrashInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDevcrashesTable extends Migration
      */
     public function up()
     {
-        Schema::create('devcrashes', function (Blueprint $table) {
-            $table->integer('id')->unique();
-            $table->integer('dev_id');
-            $table->string('status');
-            $table->integer('progress');
+        Schema::create('crash_infos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('crash_id');
+            $table->char('category');
+            $table->string('crash_details');
+            $table->unsignedInteger('reporter_id');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateDevcrashesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devcrashes');
+        Schema::dropIfExists('crash_infos');
     }
 }

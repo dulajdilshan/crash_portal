@@ -15,9 +15,13 @@ class CreateCrashesTable extends Migration
     {
         Schema::create('crashes', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('crash_name',100);
-            $table->string('description');
-            $table->char('uploaded_by',50);
+            $table->char('crash_title',100);
+            $table->dateTime('report_created_at');
+            $table->unsignedInteger('developer_id');
+            $table->unsignedInteger('progress');
+            $table->boolean('solved');
+            $table->string('development_status');
+//            $table->char('uploaded_by',50);
             $table->timestamps();
         });
     }
