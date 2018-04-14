@@ -27,7 +27,7 @@
                                     @foreach($crashes as $crash)
                                     <tr>
                                         <td class="text-primary">{{$crash->id}}</td>
-                                        <td>{{$crash->crash_name}}</td>
+                                        <td><a id="{{$crash->id}}">{{$crash->crash_name}}</a></td>
                                         {{--  <td>{{$crash->description}}</td>  --}}
                                         <td>{{$crash->uploaded_by}}</td>
                                         <td>
@@ -38,16 +38,16 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm btn-success" >
+                                            <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}">
                                                 <i class="material-icons">remove_red_eye</i> View
                                             </button>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm btn-blue">
+                                            <button class="btn btn-primary btn-sm btn-blue" id="edit{{$crash->id}}">
                                                 <i class="material-icons">build</i>Edit</button>
-                                            <button class="btn btn-primary btn-sm btn-rose">
+                                            <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}">
                                                 <i class="material-icons">delete</i>Delete</button>
-                                            <button class="btn btn-primary btn-sm btn-rose">
+                                            <button class="btn btn-primary btn-sm btn-rose"id="assign{{$crash->id}}">
                                                 <i class="material-icons">rowing</i>Assign Myself</button>
                                         </td>
                                         <td></td>

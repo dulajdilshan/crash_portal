@@ -15,7 +15,6 @@ class DeveloperController extends Controller
     //view
     public function index()
     {
-
         return redirect('developer/dash');
     }
     public function viewCrashesBoard()

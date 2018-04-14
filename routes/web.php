@@ -12,6 +12,7 @@
 */
 use App\Developer;
 
+
 Route::get('/',function(){
     return view('login');
 });
@@ -21,8 +22,12 @@ Route::get('/g', function () {
     echo $dev->details->github_link;
 });
 
-Route::get('/dash',function(){
-    return view('developer/home');
+Route::get('/crash',function(){
+
+    return view('crash.crash',
+        [
+            'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active'
+        ]);
 });
 
 Route::get('/master',function(){
