@@ -20,8 +20,23 @@ class Developer extends Model
         return $this->hasOne('App\DevDetail','developer_id');
     }
 
-    public function crashesInfo()
+    public function crash()
     {
-        return $this->hasMany('App\DevCrash','dev_id');
+        return $this->hasMany('App\Crash');
+    }
+
+    public function solved_crash()
+    {
+        return $this->hasMany('App\Solved_crash');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function notification()
+    {
+        return $this->hasMany('App\Notification');
     }
 }

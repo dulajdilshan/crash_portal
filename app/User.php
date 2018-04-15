@@ -29,6 +29,11 @@ class User extends Authenticatable
 
     public function developer()
     {
-        return $this->hasOne('App\Developer','id');
+        return $this->hasOne('App\Developer');
+    }
+
+    public function admin()
+    {
+        return $this->hasOne('App\Admin');
     }
 }

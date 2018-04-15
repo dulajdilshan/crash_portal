@@ -16,11 +16,17 @@ class Crash extends Model
 
     public function developer()
     {
-        return $this->hasOne('App\Developer');
+        return $this->belongsTo('App\Developer');
     }
 
     public function crash_info()
     {
         return $this->hasOne('App\Crash_info');
     }
+
+    public function solved_crash()
+    {
+        return $this->hasOne('App\Solved_crash');
+    }
+
 }
