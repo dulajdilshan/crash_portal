@@ -14,8 +14,13 @@ class Crash extends Model
         
     ];
 
-    public function developerInfo()
+    public function developer()
     {
-        return $this->hasOne('App\DevCrash','id');
+        return $this->hasOne('App\Developer');
+    }
+
+    public function crash_info()
+    {
+        return $this->hasOne('App\Crash_info');
     }
 }
