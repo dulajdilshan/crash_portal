@@ -22,9 +22,9 @@
 
                                     @foreach($crashes as $crash)
                                     <tr>
-                                        <td>{{$crash->crash_name}}</td>
+                                        <td>{{$crash->crash_title}}</td>
                                         {{--  <td>{{$crash->description}}</td>  --}}
-                                        <td>{{$crash->uploaded_by}}</td>
+                                        <td>{{$crash->report_created_at}}</td>
                                     <td class="text-primary">{{$crash->id}}</td>
                                     </tr>
                                     @endforeach

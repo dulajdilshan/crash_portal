@@ -27,9 +27,9 @@
                                     @foreach($crashes as $crash)
                                     <tr>
                                         <td class="text-primary">{{$crash->id}}</td>
-                                        <td><a id="{{$crash->id}}">{{$crash->crash_name}}</a></td>
+                                        <td><a id="{{$crash->id}}">{{$crash->crash_title}}</a></td>
                                         {{--  <td>{{$crash->description}}</td>  --}}
-                                        <td>{{$crash->uploaded_by}}</td>
+                                        <td>{{$crash->report_created_at}}</td>
                                         <td>
                                             <div class="progress progress-line-primary">
                                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
@@ -50,7 +50,7 @@
                                             <button class="btn btn-primary btn-sm btn-rose"id="assign{{$crash->id}}">
                                                 <i class="material-icons">rowing</i>Assign Myself</button>
                                         </td>
-                                        <td></td>
+                                        <td>{{$crash->developer_id}}</td>
                                         {{--<td><button class="btn btn-primary btn-fab btn-round">--}}
                                             {{--<i class="material-icons">edit</i>--}}
                                             {{--<div class="ripple-container"></div>--}}
