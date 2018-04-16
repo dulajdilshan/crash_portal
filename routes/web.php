@@ -38,6 +38,10 @@ Route::get('master',function(){
     return view('layouts/master');
 });
 
+//Crash Routes
+Route::get('/crash/{id}','CrashController@viewCrash');
+
+
 //Developers Routes
 Route::get('/developer','DeveloperController@index');
 Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');

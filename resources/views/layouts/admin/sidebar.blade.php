@@ -19,7 +19,7 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </li>
         <li class="{{$smyprofile}}">
-            <a href="myprofile">
+            <a href={{url('admin/myprofile')}}>
                 <i class="material-icons">person</i>
                 <p>My Profile</p>
             </a>

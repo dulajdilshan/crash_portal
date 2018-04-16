@@ -1,6 +1,5 @@
-@extends('layouts.developer.developer_layout')
+@extends('layouts.admin.admin_layout')
 @section('content')
-    {{--Content--}}
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -48,7 +47,7 @@
                                         </td>
                                         <td>{{$crash->developer_id}}</td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}">
+                                            <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}" onclick="window.location.href='/crash/{{$crash->id}}'">
                                                 <i class="material-icons">remove_red_eye</i> View
                                             </button>
                                         </td>

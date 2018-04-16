@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Crash;
+use App\Developer;
 class AdminController extends Controller
 {
 
@@ -33,10 +34,10 @@ class AdminController extends Controller
             ]);
     }
     public function viewDevelopersManager(){
-        $crashes = Crash::all();
+        $developers = Developer::all();
         return view('admin.developers_manager',
             [
-                'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive'
-            ]);
+                'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive'
+            ])->with('developers',$developers);
     }
 }

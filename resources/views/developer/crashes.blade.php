@@ -24,7 +24,7 @@
                                 <th>ID</th>
                                 <th>Title</th>
                                 {{--  <th>Description</th>  --}}
-                                <th>Report created at</th>
+                                <th>Report created at (Y-M-D hh:mm:ss)</th>
                                 <th>Progress</th>
                                 <th>Assigned Developer</th>
                                 <th></th>
@@ -40,15 +40,15 @@
                                         {{--  <td>{{$crash->description}}</td>  --}}
                                         <td>{{$crash->report_created_at}}</td>
                                         <td>
-                                            <div class="progress progress-line-primary">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: {{$crash->progress}}%;">
-                                                    <p style="color: #1a1a1a">{{$crash->progress}}%</p>
-                                                </div>
+                                            {{--<div class="progress progress-line-primary">--}}
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: {{$crash->progress}}%;">
+                                                <p style="color: #1a1a1a">{{$crash->progress}}%</p>
                                             </div>
+                                            {{--</div>--}}
                                         </td>
                                         <td>{{$crash->developer_id}}</td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}">
+                                            <button class="btn btn-primary btn-sm btn-success" onclick="window.location.href='/crash/{{$crash->id}}'">
                                                 <i class="material-icons">remove_red_eye</i> View
                                             </button>
                                         </td>
@@ -60,11 +60,6 @@
                                             <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}">
                                                 <i class="material-icons">rowing</i>Assign Myself</button>
                                         </td>
-
-                                        {{--<td><button class="btn btn-primary btn-fab btn-round">--}}
-                                        {{--<i class="material-icons">edit</i>--}}
-                                        {{--<div class="ripple-container"></div>--}}
-                                        {{--</button></td>--}}
                                     </tr>
                                 @endforeach
 

@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./user.html">
+                    <a onclick="window.location.href='/developer/myprofile'">
                         <i class="material-icons">person</i>
                         <p>User Profile</p>
                     </a>

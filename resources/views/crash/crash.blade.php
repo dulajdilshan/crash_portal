@@ -2,13 +2,12 @@
 @section('content')
     <div class="content">
         <div class="container-fluid">
-            <button class="btn btn-primary" onclick="location.href='{{ url('developer/crashes#14') }}'">< Go Back</button>
+            <div class="btn btn-primary" onclick="window.location.href='/developer/crashes#{{$crash->id}}'">< Go Back</div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
-
                         <div class="card-header" data-background-color="blue">
-                            <h4 class="title">Crash Title</h4>
+                            <h4 class="title"><b>Crash: </b>{{$crash->crash_title}}</h4>
                             {{--<p class="category">Complete your profile</p>--}}
                         </div>
                         <div class="card-content">
@@ -17,13 +16,13 @@
                                     <div class="col-md-5">
                                         <div class="form-group label-floating">
                                             <label class="control-label">CRASH ID</label>
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control" value="{{$crash->id}}" disabled readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group label-floating">
                                             <label class="control-label">REPORTED BY</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" value="{{$crash->crash_info()->first()->reporter_id}}" disabled readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -31,13 +30,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
                                             <label class="control-label">CATEGORY</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" value="{{$crash->crash_info()->first()->category}}" disabled readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
                                             <label class="control-label">REPORT CREATED AT</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" value="{{$crash->report_created_at}}" disabled readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -46,8 +45,8 @@
                                         <label>REPORT DETAILS</label>
                                         <div class="form-group label-floating">
                                             {{--<input type="text" class="form-control" value="Suspended">--}}
-                                            <textarea class="form-control" rows="4">
-                                                {{--Write something in here --}}
+                                            <textarea class="form-control" rows="4" disabled readonly>
+                                                {{$crash->crash_info()->first()->crash_details}}
                                             </textarea>
                                         </div>
                                     </div>
@@ -56,13 +55,22 @@
                                     <div class="col-md-4">
                                         <div class="form-group label-floating">
                                             <label class="control-label">PROGRESS</label>
-                                            <input type="text" class="form-control">
+                                            <div class="progress progress-line-primary">
+                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: {{$crash->progress}}%;">
+                                                    <p style="color: #1a1a1a">{{$crash->progress}}%</p>
+                                                </div>
+                                            </div>
+                                            {{--<input type="text" class="form-control" value="{{$crash->progress}}%" disabled readonly>--}}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group label-floating">
                                             <label class="control-label">SOLVED ?</label>
-                                            <input type="text" class="form-control">
+                                            @if($crash->solved==1)
+                                                <input type="text" class="form-control" value="YES" disabled readonly>
+                                            @else
+                                                <input type="text" class="form-control" value="NO" disabled readonly>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -72,8 +80,8 @@
                                             <label>DEVELOPMENT STATUS</label>
                                             <div class="form-group label-floating">
                                                 <label class="control-label"></label>
-                                                <textarea class="form-control" rows="5">
-                                                    NO STATUS YET
+                                                <textarea class="form-control" rows="5" disabled readonly>
+                                                    {{$crash->development_status}}
                                                 </textarea>
                                             </div>
                                         </div>
@@ -86,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-
                 {{--Developers Details--}}
                 <div class="col-md-4">
                     <div class="card card-profile">
@@ -97,9 +104,13 @@
                         </div>
                         <div class="content">
                             <h6 class="category text-gray">Developer</h6>
-                            <h4 class="card-title">Alec Thompson</h4>
+                            <h4 class="card-title">{{$crash->developer()->first()->name}}</h4>
                             <p class="card-content">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                <i class="fa fa-envelope"></i> {{$crash->developer()->first()->email}}<br>
+                                <i class="fa fa-github"></i> {{$crash->developer()->first()->github_url}}<br>
+                                <i class="fa fa-linkedin"></i> {{$crash->developer()->first()->linkedin_url}}<br>
+                                <i class="fa fa-facebook"></i> {{$crash->developer()->first()->fb_url}}<br>
+                                <b>About </b><br> {{$crash->developer()->first()->about}}
                             </p>
                             {{--<a href="#pablo" class="btn btn-primary btn-round">Follow</a>--}}
                         </div>
