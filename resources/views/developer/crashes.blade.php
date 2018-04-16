@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-plain">
+                    <div class="card">
                         <div class="card-header" data-background-color="blue">
                             <div class="row">
                                 <div class="col-md-5">
