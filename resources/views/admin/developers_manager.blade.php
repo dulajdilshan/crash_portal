@@ -1,17 +1,20 @@
 @extends('layouts.admin.admin_layout')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header" data-background-color="blue">
                             <div class="row">
                                 <div class="col-md-5">
                                     <h4 class="title">Developers Manager</h4>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                                    Search
+                                    <input type="text" style="color: #0f0f0f" id="myInput" placeholder="Search for names or usernames..">
                                 </div>
                             </div>
                         </div>
@@ -24,16 +27,12 @@
                                 <th>No of Crashes Assigned</th>
                                 <th>Controls</th>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
                                 @foreach($developers as $developer)
                                     <tr>
                                         <td class="text-primary">{{$developer->user_name}}</td>
                                         <td class="text-primary">{{$developer->name}}</td>
-                                        <td class="text-primary">
-
-                                                {{$developer->crash()->first()->id}}
-
-                                            </td>
+                                        <td class="text-primary">{{$developer->crash()->count()}}</td>
                                         <td class="text-primary">
                                             <button type="button" rel="tooltip" title="" class="btn btn-success btn-simple btn-xs" data-original-title="View Developer">
                                                 <i class="material-icons">remove_red_eye</i>
@@ -53,46 +52,17 @@
                     </div>
                 </div>
             </div>
-
-
-            <table id="myTable">
-                <tr class="header">
-                    <th style="width:60%;">Name</th>
-                    <th style="width:40%;">Country</th>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Germany</td>
-                </tr>
-                <tr>
-                    <td>Berglunds snabbkop</td>
-                    <td>Sweden</td>
-                </tr>
-                <tr>
-                    <td>Island Trading</td>
-                    <td>UK</td>
-                </tr>
-                <tr>
-                    <td>Koniglich Essen</td>
-                    <td>Germany</td>
-                </tr>
-                <tr>
-                    <td>Laughing Bacchus Winecellars</td>
-                    <td>Canada</td>
-                </tr>
-                <tr>
-                    <td>Magazzini Alimentari Riuniti</td>
-                    <td>Italy</td>
-                </tr>
-                <tr>
-                    <td>North/South</td>
-                    <td>UK</td>
-                </tr>
-                <tr>
-                    <td>Paris specialites</td>
-                    <td>France</td>
-                </tr>
-            </table>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 @endsection
+
