@@ -14,7 +14,7 @@ use App\Developer;
 
 
 Route::get('/',function(){
-    return view('login');
+    return view('auth.login');
 });
 
 Route::get('/g', function () {
@@ -58,3 +58,7 @@ Route::get('/admin/developers_manager','AdminController@viewDevelopersManager');
 //Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

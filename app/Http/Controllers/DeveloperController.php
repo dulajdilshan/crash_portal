@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Crash;
+use Illuminate\Support\Facades\Auth;
 
 class DeveloperController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     //view
     public function index()
     {
-        return redirect('developer/dash');
+        return Auth::user();
+//        return redirect('developer/dash');
     }
     public function viewCrashesBoard()
     {
