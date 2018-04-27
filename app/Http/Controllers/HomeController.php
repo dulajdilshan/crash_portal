@@ -25,5 +25,18 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+
     }
+    public function viewUserHome()
+    {
+        if(Auth::user()->admin()->exists())
+        {
+            return redirect('/admin/dash');
+        }elseif (Auth::user()->developer()->exists())
+        {
+            return redirect('/developer/dash');
+        }
+        return redirect('/index');
+    }
+
 }

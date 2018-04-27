@@ -40,11 +40,26 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                         <i class="material-icons">person</i>
                         <p class="hidden-lg hidden-md">Profile</p>
+                        {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <form class="navbar-form navbar-right" role="search">

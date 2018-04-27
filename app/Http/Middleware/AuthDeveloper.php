@@ -20,5 +20,6 @@ class AuthDeveloper
             return $next($request);
         }
         return redirect('/developer_block');
+//        return view('developer_block');
     }
 }

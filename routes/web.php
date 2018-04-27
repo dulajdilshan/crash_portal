@@ -19,8 +19,10 @@ use App\Http\Middleware\AuthAdmin;
 | General Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/', 'HomeController@index');
-Route::get('/home','HomeController@index');
+
+Route::get('/index','HomeController@index');
+Route::get('/', 'HomeController@viewUserHome');
+Route::get('/home','HomeController@viewUserHome');
 
 Route::get('/crash',function(){
 
@@ -49,7 +51,10 @@ Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');
 Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
 Route::get('/developer/dash','DeveloperController@viewDashboard');
 Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
-Route::get('developer_block','DeveloperController@viewBlock');
+Route::get('/developer_block',function (){
+    return view('developer_block');
+});
+//Route::get('developer_block','DeveloperController@viewBlock');
 
 /*
 |--------------------------------------------------------------------------
@@ -63,11 +68,9 @@ Route::get('/admin/myprofile','AdminController@viewMyprofile')->middleware(AuthA
 Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin::class);
 Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
 Route::get('/admin_block','AdminController@viewBlock');
-//Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','LoginController@logout');
