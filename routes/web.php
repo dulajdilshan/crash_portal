@@ -10,17 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Developer;
+
+use App\Http\Middleware\AuthAdmin;
 
 
-Route::get('/',function(){
-    return view('auth.login');
-});
-
-Route::get('/g', function () {
-    $dev = Developer::find(2);
-    echo $dev->details->github_link;
-});
+/*
+|--------------------------------------------------------------------------
+| General Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/', 'HomeController@index');
+Route::get('/home','HomeController@index');
 
 Route::get('/crash',function(){
 
@@ -34,27 +34,35 @@ Route::get('/master',function(){
     return view('layouts/master');
 });
 
-Route::get('master',function(){
-    return view('layouts/master');
-});
 
 //Crash Routes
 Route::get('/crash/{id}','CrashController@viewCrash');
 
+/*
+|--------------------------------------------------------------------------
+| Developers Routes
+|--------------------------------------------------------------------------
+*/
 
-//Developers Routes
 Route::get('/developer','DeveloperController@index');
 Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');
 Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
 Route::get('/developer/dash','DeveloperController@viewDashboard');
 Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
+Route::get('developer_block','DeveloperController@viewBlock');
 
-//Admin Routes
-Route::get('/admin','AdminController@index');
-Route::get('/admin/crashes','AdminController@viewCrashesBoard');
-Route::get('/admin/myprofile','AdminController@viewMyprofile');
-Route::get('/admin/dash','AdminController@viewDashboard');
-Route::get('/admin/developers_manager','AdminController@viewDevelopersManager');
+/*
+|--------------------------------------------------------------------------
+| Admins Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/admin','AdminController@index')->middleware(AuthAdmin::class);
+Route::get('/admin/crashes','AdminController@viewCrashesBoard')->middleware(AuthAdmin::class);
+Route::get('/admin/myprofile','AdminController@viewMyprofile')->middleware(AuthAdmin::class);
+Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin::class);
+Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
+Route::get('/admin_block','AdminController@viewBlock');
 //Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 
 
@@ -62,3 +70,4 @@ Route::get('/admin/developers_manager','AdminController@viewDevelopersManager');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout','LoginController@logout');

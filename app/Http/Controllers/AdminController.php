@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Crash;
 use App\Developer;
 class AdminController extends Controller
 {
-
-    //View
-    public function index(){
-        return redirect('admin/dash');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+
+    public function index(){
+            return redirect('admin/dash');
+    }
+
     public function viewCrashesBoard(){
         $crashes = Crash::all();
         return view('admin.crashes',
@@ -39,5 +44,9 @@ class AdminController extends Controller
             [
                 'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive'
             ])->with('developers',$developers);
+    }
+    public function viewBlock()
+    {
+        return view ('admin_block');
     }
 }

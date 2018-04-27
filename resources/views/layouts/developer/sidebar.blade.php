@@ -6,8 +6,8 @@
     Tip 2: you can also add an image using data-image tag
     -->
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
-                Creative Tim
+            <a href="/developer" class="simple-text">
+                <img src="{{asset('img/musescore.png')}}"  style="width:50px;height:60px;"> Crash Portal
             </a>
         </div>
         <div class="sidebar-wrapper">

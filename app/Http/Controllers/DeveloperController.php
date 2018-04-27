@@ -11,13 +11,13 @@ class DeveloperController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('auth_developer');
     }
 
     //view
     public function index()
     {
-        return Auth::user();
-//        return redirect('developer/dash');
+        return redirect('developer/dash');
     }
     public function viewCrashesBoard()
     {
@@ -53,5 +53,9 @@ class DeveloperController extends Controller
             [
                 'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive'
             ]);
+    }
+    public function viewBlock()
+    {
+        return view('developer_block');
     }
 }
