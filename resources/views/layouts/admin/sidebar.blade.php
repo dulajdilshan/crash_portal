@@ -13,7 +13,7 @@ Tip 2: you can also add an image using data-image tag
 <div class="sidebar-wrapper">
     <ul class="nav">
         <li class="{{$sdashboard}}">
-            <a href="dash">
+            <a href={{url('admin/dash')}}>
                 <i class="material-icons">dashboard</i>
                 <p>Dashboard</p>
             </a>
@@ -25,13 +25,13 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </li>
         <li class="{{$scrashes}}">
-            <a href="crashes">
+            <a href={{url('admin/crashes')}}>
                 <i class="material-icons">content_paste</i>
                 <p>Crashes</p>
             </a>
         </li>
         <li class="{{$smycrashes}}">
-            <a href="developers_manager">
+            <a href={{url('admin/developer_manager')}}>
                 <i class="material-icons">library_books</i>
                 <p>Developers Manager</p>
             </a>

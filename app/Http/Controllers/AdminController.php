@@ -21,8 +21,8 @@ class AdminController extends Controller
         $crashes = Crash::all();
         return view('admin.crashes',
             [
-                'crashes' => $crashes,'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
-            ]);
+                'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
+            ])->with('crashes',$crashes);
     }
     public function viewMyprofile(){
         $crashes = Crash::all();
@@ -48,5 +48,12 @@ class AdminController extends Controller
     public function viewBlock()
     {
         return view ('admin_block');
+    }
+    public function viewCrash($id)
+    {
+        $crash = Crash::find($id);
+        return view('crash.crash',[
+            'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
+        ])->with('crash', $crash);
     }
 }

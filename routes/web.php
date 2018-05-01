@@ -38,6 +38,7 @@ Route::get('/master',function(){
 
 
 //Crash Routes
+Route::get('admin/crash/{id}','AdminController@viewCrash');
 Route::get('/crash/{id}','CrashController@viewCrash');
 
 /*
@@ -74,3 +75,15 @@ Route::get('/admin_block','AdminController@viewBlock');
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','LoginController@logout');
+
+
+//Testing proposes
+Route::get('test',function (){
+    $crash = \App\Crash::find(3);
+    $dev = \App\Developer::find(22);
+    return view('test',
+        [
+            'dev'=>$dev,
+        ]
+        )->with('crash',$crash);
+});

@@ -2,7 +2,7 @@
 @section('content')
     <div class="content">
         <div class="container-fluid">
-            <div class="btn btn-primary" onclick="window.location.href='/developer/crashes#{{$crash->id}}'">< Go Back</div>
+            <div class="btn btn-primary" onclick="window.location.href='{{url('admin/crashes#')}}{{$crash->id}}'">< Go Back</div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
