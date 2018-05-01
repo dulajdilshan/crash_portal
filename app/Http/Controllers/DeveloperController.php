@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Developer;
+use App\Solved_crash;
 use Illuminate\Http\Request;
 
 use App\Crash;
@@ -40,9 +42,14 @@ class DeveloperController extends Controller
     public function viewDashboard()
     {
         $crashes = Crash::all();
+        $solved_crashes = Solved_crash::all();
+        $developers = Developer::all();
         return view('developer.dash',
             [
-                'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive'
+                'crashes' => $crashes,
+                'solved_crashes'=>$solved_crashes,
+                'developers'=>$developers,
+                'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive'
             ]);
     }
 

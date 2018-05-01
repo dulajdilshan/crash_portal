@@ -6,18 +6,18 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="orange">
-                        <i class="material-icons">content_copy</i>
+                        <i class="material-icons">accessibility</i>
                     </div>
                     <div class="card-content">
-                        <p class="category">Used Space</p>
-                        <h3 class="title">49/50
-                            <small>GB</small>
+                        <p class="category">No of Developers</p>
+                        <h3 class="title">{{$developers->count()}}
+                            <small><i class="material-icons">face</i></small>
                         </h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons text-danger">warning</i>
-                            <a href="#pablo">Get More Space...</a>
+                            <i class="material-icons text-info">info</i>
+                            <a href="#pablo">Search Developers</a>
                         </div>
                     </div>
                 </div>
