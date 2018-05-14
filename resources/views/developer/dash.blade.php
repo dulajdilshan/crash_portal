@@ -28,8 +28,8 @@
                         <i class="material-icons">store</i>
                     </div>
                     <div class="card-content">
-                        <p class="category">Revenue</p>
-                        <h3 class="title">$34,245</h3>
+                        <p class="category">Total Crashes</p>
+                        <h3 class="title">{{$crashes->count()}}</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="card-content">
                         <p class="category">Fixed Issues</p>
-                        <h3 class="title">75</h3>
+                        <h3 class="title">12</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -78,9 +78,9 @@
                         <div class="ct-chart" id="dailySalesChart"></div>
                     </div>
                     <div class="card-content">
-                        <h4 class="title">Daily Sales</h4>
+                        <h4 class="title">Crashes</h4>
                         <p class="category">
-                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                            <span class="text-success"><i class="fa fa-long-arrow-up"></i>12</span> increase </p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -95,8 +95,8 @@
                         <div class="ct-chart" id="emailsSubscriptionChart"></div>
                     </div>
                     <div class="card-content">
-                        <h4 class="title">Email Subscriptions</h4>
-                        <p class="category">Last Campaign Performance</p>
+                        <h4 class="title">ddd</h4>
+                        <p class="category">ddd</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
