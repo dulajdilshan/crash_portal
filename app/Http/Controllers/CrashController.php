@@ -19,4 +19,8 @@ class CrashController extends Controller
             'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
         ])->with('crash', $crash);
     }
+    public function test()
+    {
+        return "working test";
+    }
 }

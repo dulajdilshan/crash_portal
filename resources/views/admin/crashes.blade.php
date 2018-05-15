@@ -14,8 +14,8 @@
                                     <p class="category">Crashes uploaded by the users</p>
                                 </div>
                                 <div class="col-md-5">
-                                    <button class="btn btn-round">Unassigned Crashes</button>
-                                    <button class="btn btn-round">All crashes</button>
+                                    <button class="btn btn-round" onclick="filterTable()">Unassigned Crashes</button>
+                                    <button class="btn btn-round" onclick="showAll()">All crashes</button>
                                 </div>
                                 <div class="col-md-2">
                                     Search
@@ -54,6 +54,7 @@
                                             <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'">
                                                 <i class="material-icons">remove_red_eye</i> View
                                             </button>
+                                            <button id="myBtn">Show</button>
                                         </td>
                                         <td>
                                             <button class="btn btn-sm" id="edit{{$crash->id}}">
@@ -69,12 +70,15 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{--POP up box for viewing crashes--}}
+                        @include('crash.view_crash')
                     </div>
                 </div>
                 {{--  Another col  --}}
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {
@@ -84,5 +88,26 @@
                 });
             });
         });
+
+        function filterTable() {
+            var filter = 0;
+            var rows = document.querySelector("#myTable").rows;
+
+            for (var i = 0; i < rows.length; i++) {
+                var progressCol = parseInt(rows[i].cells[3].textContent);
+                if (progressCol == 0) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        function showAll() {
+            var rows = document.querySelector("#myTable").rows;
+            for(var i = 0;i < rows.length;i++){
+                rows[i].style.display = "";
+            }
+        }
     </script>
 @endsection
