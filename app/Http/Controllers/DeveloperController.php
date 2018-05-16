@@ -21,6 +21,7 @@ class DeveloperController extends Controller
     {
         return redirect('developer/dash');
     }
+
     public function viewCrashesBoard()
     {
         $crashes = Crash::all();

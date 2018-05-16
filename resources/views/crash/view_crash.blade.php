@@ -155,9 +155,10 @@
 <div id="deleteCrash{{$crash->id}}" class="modal2">
     <div class="modal-content">
         <div class="modal-body">
-            <form method="post" action="{{url('admin/crash/delete')}}">
+            <form method="post" action="{{url('admin/crash/delete')}}"> {{ csrf_field() }}
                 <div class="row" style="font-size: large">
-                    Are you sure want to delete Crash No: <input name="crash_id"><b>{{$crash->id}}?</b></div>
+                    Are you sure want to delete Crash No: <b>{{$crash->id}}</b>?
+                    <input name="crash_id" value="{{$crash->id}}" hidden>
                 </div>
                 <div class="row">
                     <div class="col-md-2"></div>

@@ -60,8 +60,8 @@
                                                 <i class="material-icons">build</i>Edit</button>
                                             <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)">
                                                 <i class="material-icons">delete</i>Delete</button>
-                                            <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}" disabled>
-                                                <i class="material-icons">rowing</i>Assign Myself</button>
+                                            <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}" onclick="window.location.href='view-developer/{{$crash->developer_id}}'">
+                                                <i class="material-icons">rowing</i>Go to assigned Developer</button>
                                         </td>
                                         @include('crash.view_crash')
                                     </tr>

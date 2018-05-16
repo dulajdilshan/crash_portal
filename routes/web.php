@@ -75,6 +75,9 @@ Route::get('/admin/crashes','AdminController@viewCrashesBoard')->middleware(Auth
 Route::get('/admin/myprofile','AdminController@viewMyprofile')->middleware(AuthAdmin::class);
 Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin::class);
 Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
+Route::get('/admin/view-developer/{id}','AdminController@viewdeveloper');
+Route::post('developer/update-profile','AdminController@updateDeveloperProfile');
+Route::post('admin/developer/delete','AdminController@deleteDeveloper');
 Route::get('/admin_block','AdminController@viewBlock');
 Route::get('admin/crash/{id}','AdminController@editCrash')->middleware(AuthAdmin::class);
 Route::post('admin/crash/update','CrashController@updateCrash');

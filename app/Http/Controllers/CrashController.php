@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Crash;
+use App\Crash_info;
 use http\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -61,16 +62,16 @@ class CrashController extends Controller
 
     public function deleteCrash(Request $request)
     {
+        Crash::where('id',$request['crash_id'])->delete();
+        Crash_info::where('crash_id',$request['crash_id'])->delete();
+        return redirect('admin/crashes');
+    }
+    
+    public function unassignCrash(Request $request)
+    {
         
     }
 
-    public function viewCrash($id)
-    {
-        $crash = Crash::find($id);
-        return view('crash.crash',[
-            'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
-        ])->with('crash', $crash);
-    }
     public function test()
     {
         return "working test";
