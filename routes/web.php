@@ -55,7 +55,14 @@ Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
 Route::get('/developer_block',function (){
     return view('developer_block');
 });
-//Route::get('developer_block','DeveloperController@viewBlock');
+
+/*
+|--------------------------------------------------------------------------
+| End of Developers Routes
+|--------------------------------------------------------------------------
+*/
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,12 +77,20 @@ Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin:
 Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
 Route::get('/admin_block','AdminController@viewBlock');
 Route::get('admin/crash/{id}','AdminController@editCrash')->middleware(AuthAdmin::class);
+Route::post('admin/crash/update','CrashController@updateCrash');
+Route::post('admin/crash/delete','CrashController@deleteCrash');
 Route::get('admin/test','AdminController@test');
+
+/*
+|--------------------------------------------------------------------------
+| End of Admins Routes
+|--------------------------------------------------------------------------
+*/
+
 
 
 
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','LoginController@logout');
 
 

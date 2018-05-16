@@ -11,12 +11,13 @@
                             {{--<p class="category">Complete your profile</p>--}}
                         </div>
                         <div class="card-content">
-                            <form>
+                            <form method="POST" action="{{url('admin/crash/update')}}">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group label-floating">
                                             <label class="control-label">CRASH ID</label>
-                                            <input type="text" class="form-control" value="{{$crash->id}}" disabled readonly>
+                                            <input name="crash_id" type="text" class="form-control" value="{{$crash->id}}" readonly  >
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -29,8 +30,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">CATEGORY</label>
-                                            <input type="text" class="form-control" value="{{$crash->crash_info()->first()->category}}" disabled readonly>
+                                            <label class="control-label" >CATEGORY</label>
+                                            <input name="category" type="text" class="form-control" value="{{$crash->crash_info()->first()->category}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -45,7 +46,7 @@
                                         <label>REPORT DETAILS</label>
                                         <div class="form-group label-floating">
                                             {{--<input type="text" class="form-control" value="Suspended">--}}
-                                            <textarea class="form-control" rows="4" disabled readonly>
+                                            <textarea name="report_details" class="form-control" rows="4">
                                                 {{$crash->crash_info()->first()->crash_details}}
                                             </textarea>
                                         </div>
@@ -54,13 +55,12 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">PROGRESS</label>
-                                            <div class="progress progress-line-primary">
+                                            <label class="control-label">PROGRESS % (Last Progress: {{$crash->progress}}%)</label>
+                                            <input type="text" name="progress" class="form-control" value="{{$crash->progress}}" >
+                                            <div class="progress progress-line-primary" disabled readonly>
                                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: {{$crash->progress}}%;">
-                                                    <p style="color: #1a1a1a">{{$crash->progress}}%</p>
-                                                </div>
+                                                </div><p style="color: #1a1a1a">Last Progress: {{$crash->progress}}%</p>
                                             </div>
-                                            {{--<input type="text" class="form-control" value="{{$crash->progress}}%" disabled readonly>--}}
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -80,15 +80,15 @@
                                             <label>DEVELOPMENT STATUS</label>
                                             <div class="form-group label-floating">
                                                 <label class="control-label"></label>
-                                                <textarea class="form-control" rows="5" disabled readonly>
+                                                <textarea name="development_status" class="form-control" rows="5">
                                                     {{$crash->development_status}}
                                                 </textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success pull-right" disabled>PUBLISH CHANGES</button>
-                                <button type="reset" class="btn btn-warning pull-right" disabled>RESET</button>
+                                <button type="submit" class="btn btn-success pull-right">PUBLISH CHANGES</button>
+                                <button type="reset" class="btn btn-warning pull-right" >RESET</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>

@@ -15,6 +15,19 @@
         background-color: rgb(0,0,0); /* Fallback color */
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     }
+    .modal2 {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scrol l if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
 
     /* Modal Content */
     .modal-content {
@@ -23,7 +36,7 @@
         margin: auto;
         padding: 0;
         border: 1px solid #888;
-        width: 50%;
+        width: 20%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
@@ -137,8 +150,26 @@
         </div>
     </div>
 </div>
-<script>
 
+{{--Delete Crash--}}
+<div id="deleteCrash{{$crash->id}}" class="modal2">
+    <div class="modal-content">
+        <div class="modal-body">
+            <form method="post" action="{{url('admin/crash/delete')}}">
+                <div class="row" style="font-size: large">
+                    Are you sure want to delete Crash No: <input name="crash_id"><b>{{$crash->id}}?</b></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <button type="reset" id="no{{$crash->id}}" class="btn btn-primary" onclick="notDeleteCrash(this)">No</button>
+                    <button type="submit" class="btn btn-rose" >Yes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
     function viewCrash(e) {
         var id = e.id;
         var k = parseInt(id.substr(4,120));
@@ -149,6 +180,18 @@
     function notViewCrash(e) {
         var id = e.id;
         var modalx = document.getElementById("viewCrash"+id.substr(4,120));
+        modalx.style.display = "none";
+    }
+
+    function viewDeleteCrash(e) {
+        var id = e.id;
+        var modalx = document.getElementById("deleteCrash"+id.substr(6,120));
+        modalx.style.display = "block";
+    }
+
+    function notDeleteCrash(e) {
+        var id = e.id;
+        var modalx = document.getElementById("deleteCrash"+id.substr(2,120));
         modalx.style.display = "none";
     }
 </script>

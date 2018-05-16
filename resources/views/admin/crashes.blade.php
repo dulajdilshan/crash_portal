@@ -58,7 +58,7 @@
                                         <td>
                                             <button class="btn btn-sm" id="edit{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'">
                                                 <i class="material-icons">build</i>Edit</button>
-                                            <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}">
+                                            <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)">
                                                 <i class="material-icons">delete</i>Delete</button>
                                             <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}" disabled>
                                                 <i class="material-icons">rowing</i>Assign Myself</button>
@@ -78,6 +78,7 @@
             </div>
         </div>
     </div>
+
 
     <script>
         $(document).ready(function(){
