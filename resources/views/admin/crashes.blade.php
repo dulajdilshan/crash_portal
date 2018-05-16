@@ -40,7 +40,6 @@
                                     <tr>
                                         <td class="text-primary">{{$crash->id}}</td>
                                         <td><a id="{{$crash->id}}">{{$crash->crash_title}}</a></td>
-                                        {{--  <td>{{$crash->description}}</td>  --}}
                                         <td>{{$crash->report_created_at}}</td>
                                         <td>
                                             <div class="progress progress-line-primary">
@@ -49,21 +48,22 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{{$crash->developer->name}}</td>
+                                        <td>{{$crash->name}}</td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'">
+                                            <button class="btn btn-primary btn-sm btn-success" id="view{{$crash->id}}" onclick="viewCrash(this)">
                                                 <i class="material-icons">remove_red_eye</i> View
                                             </button>
-                                            <button id="myBtn">Show</button>
+                                            {{--<button id="myBtn">Show</button>--}}
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm" id="edit{{$crash->id}}">
+                                            <button class="btn btn-sm" id="edit{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'">
                                                 <i class="material-icons">build</i>Edit</button>
                                             <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}">
                                                 <i class="material-icons">delete</i>Delete</button>
                                             <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}" disabled>
                                                 <i class="material-icons">rowing</i>Assign Myself</button>
                                         </td>
+                                        @include('crash.view_crash')
                                     </tr>
                                 @endforeach
 
@@ -71,7 +71,7 @@
                             </table>
                         </div>
                         {{--POP up box for viewing crashes--}}
-                        @include('crash.view_crash')
+                        {{--@include('crash.view_crash')--}}
                     </div>
                 </div>
                 {{--  Another col  --}}

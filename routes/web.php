@@ -69,6 +69,8 @@ Route::get('/admin/myprofile','AdminController@viewMyprofile')->middleware(AuthA
 Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin::class);
 Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
 Route::get('/admin_block','AdminController@viewBlock');
+Route::get('admin/crash/{id}','AdminController@editCrash')->middleware(AuthAdmin::class);
+Route::get('admin/test','AdminController@test');
 
 
 
@@ -77,7 +79,7 @@ Auth::routes();
 Route::get('/logout','LoginController@logout');
 
 
-//Testing proposes
+//Testing purposes
 Route::get('test',function (){
     $crash = \App\Crash::find(3);
     $dev = \App\Developer::find(22);
