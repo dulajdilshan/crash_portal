@@ -77,6 +77,7 @@ Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')-
 Route::get('/admin/view-developer/{id}','AdminController@viewdeveloper');
 Route::post('developer/update-profile','AdminController@updateDeveloperProfile');
 Route::post('admin/developer/delete','AdminController@deleteDeveloper');
+Route::post('admin/send','AdminController@send');
 Route::get('/admin_block','AdminController@viewBlock');
 Route::get('admin/crash/{id}','AdminController@editCrash')->middleware(AuthAdmin::class);
 Route::post('admin/crash/update','CrashController@updateCrash');

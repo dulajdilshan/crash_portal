@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Crash_info;
+use App\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +77,7 @@ class AdminController extends Controller
             if ($admin==null){
                 return redirect('admin/myprofile');
             }
-            
+
             $admin['email'] = $request['email'];
             $admin['github_url'] = $request['github_url'];
             $admin['linkedin_url'] = $request['linkedin_url'];
@@ -96,11 +97,14 @@ class AdminController extends Controller
     //View Dashboard
     public function viewDashboard()
     {
+        $notifications = Notification::where('all','=','1')->orderBy('created_at')->get();
         $crashes = Crash::all();
-        return view('admin.dash',
+        $newcrash = DB::table('crashes')->latest()->get();
+        $developers = Developer::all();
+        return view('admin.dashboard',
             [
-                'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive'
-            ]);
+                'developers'=>$developers,'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'active','smyprofile'=>'deactive'
+            ])->with('newcrash',$newcrash)->with('notifications',$notifications);
     }
 
     //View developers Manager board
@@ -178,6 +182,27 @@ class AdminController extends Controller
     public function viewBlock()
     {
         return view ('admin_block');
+    }
+
+    public function send(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $not = new Notification;
+            $not['all'] = $request['all'];
+            $not['admin_only'] = $request['admin_only'];
+            $not['developer_id'] = $request['developer_id'];
+            $not['title'] = $request['title'];
+            $not['description'] = $request['description'];
+            $not->save();
+            }
+            catch (Exception $e){
+                DB::rollback();
+                return redirect('/admin');
+            }
+            DB::commit();
+        return redirect('/admin');
     }
 
 
