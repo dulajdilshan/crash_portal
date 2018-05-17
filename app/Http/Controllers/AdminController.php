@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Crash;
 use App\Developer;
+use App\Admin;
 use App\Http\Controllers\DeveloperController;
 
 class AdminController extends Controller
@@ -51,11 +52,45 @@ class AdminController extends Controller
     //open view/edit myprfile
     public function viewMyprofile()
     {
-        $crashes = Crash::all();
+        $admin = Auth::user()->admin()->first();
         return view('admin.myprofile',
             [
-                'crashes' => $crashes,'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active'
-            ]);
+                'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active'
+            ])->with('admin',$admin);
+    }
+    //Update inforation
+    public function updateAdmin(Request $request)
+    {
+        $request->validate([
+            'name' => 'max:150',
+            'email' => 'email',
+            'github_url' => 'url',
+            'linkedin_url' => 'url',
+            'fb_url' => 'url',
+        ]);
+
+        DB::beginTransaction();
+        try{
+            $admin = Admin::where('id',$request['admin_id'])->first();
+
+            if ($admin==null){
+                return redirect('admin/myprofile');
+            }
+            
+            $admin['email'] = $request['email'];
+            $admin['github_url'] = $request['github_url'];
+            $admin['linkedin_url'] = $request['linkedin_url'];
+            $admin['fb_url'] = $request['fb_url'];
+            $admin->user['name'] = $request['name'];
+            $admin->save();
+
+        }catch (Exception $e){
+            DB::rollback();
+            return redirect('admin/myprofile/');
+        }
+
+        DB::commit();
+        return redirect('admin/myprofile/');
     }
 
     //View Dashboard

@@ -23,23 +23,21 @@ use App\Http\Middleware\AuthAdmin;
 Route::get('/index','HomeController@index');
 Route::get('/', 'HomeController@viewUserHome');
 Route::get('/home','HomeController@viewUserHome');
+Route::get('/change-password','HomeController@showChangePasswordForm');
+Route::post('/change-password','HomeController@changePassword')->name('change-password');
 
-Route::get('/crash',function(){
-
-    return view('crash.crash',
-        [
-            'scrashes'=>'deactive','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'active'
-        ]);
-});
 
 Route::get('/master',function(){
     return view('layouts/master');
 });
 
+/*
+|--------------------------------------------------------------------------
+| End of General Routes
+|--------------------------------------------------------------------------
+*/
 
-//Crash Routes
-Route::get('admin/crash/{id}','AdminController@viewCrash');
-Route::get('/crash/{id}','CrashController@viewCrash');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +71,7 @@ Route::get('/developer_block',function (){
 Route::get('/admin','AdminController@index')->middleware(AuthAdmin::class);
 Route::get('/admin/crashes','AdminController@viewCrashesBoard')->middleware(AuthAdmin::class);
 Route::get('/admin/myprofile','AdminController@viewMyprofile')->middleware(AuthAdmin::class);
+Route::post('admin/update-profile','AdminController@updateAdmin');
 Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin::class);
 Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
 Route::get('/admin/view-developer/{id}','AdminController@viewdeveloper');
