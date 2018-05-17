@@ -56,12 +56,34 @@
                                             {{--<button id="myBtn">Show</button>--}}
                                         </td>
                                         <td>
+
+                                            @if($crash->developer_id==$id)
                                             <button class="btn btn-sm" id="edit{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'">
                                                 <i class="material-icons">build</i>Edit</button>
-                                            <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)">
+                                            <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)" disabled>
                                                 <i class="material-icons">delete</i>Delete</button>
-                                            <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}" onclick="window.location.href='view-developer/{{$crash->developer_id}}'">
-                                                <i class="material-icons">rowing</i>Go to assigned Developer</button>
+                                            <button class="btn btn-primary btn-sm btn-warning" id="assign{{$crash->id}}" onclick="window.location.href='view-developer/{{$crash->developer_id}}'" disabled>
+                                                <i class="material-icons">rowing</i>Assign Myself</button>
+                                            @elseif($crash->developer_id==0)
+                                                <button class="btn btn-sm" id="edit{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'" disabled="">
+                                                    <i class="material-icons">build</i>Edit</button>
+                                                <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)" disabled>
+                                                    <i class="material-icons">delete</i>Delete</button>
+                                                <button class="btn btn-primary btn-sm btn-warning" id="assign{{$crash->id}}" onclick="event.preventDefault();
+                                                     document.getElementById('assign-myself{{$crash->id}}').submit();" >
+                                                    <i class="material-icons">rowing</i>Assign Myself</button>
+                                            @else
+                                                <button class="btn btn-sm" id="edit{{$crash->id}}" onclick="window.location.href='crash/{{$crash->id}}'" disabled="">
+                                                    <i class="material-icons">build</i>Edit</button>
+                                                <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)" disabled>
+                                                    <i class="material-icons">delete</i>Delete</button>
+                                                <button class="btn btn-primary btn-sm btn-warning" id="assign{{$crash->id}}" onclick="window.location.href='view-developer/{{$crash->developer_id}}'" disabled>
+                                                    <i class="material-icons">rowing</i>Assign Myself</button>
+                                            @endif
+                                            <form id="assign-myself{{$crash->id}}" action="{{ url('developer/assign-myself') }}" method="POST" style="display: none;">
+                                                <input name="crash_id" value="{{$crash->id}}">
+                                                {{ csrf_field() }}
+                                            </form>
                                         </td>
                                         @include('crash.view_crash')
                                     </tr>

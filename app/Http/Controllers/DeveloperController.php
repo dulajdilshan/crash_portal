@@ -47,6 +47,7 @@ class DeveloperController extends Controller
 
     public function viewCrashesBoard()
     {
+        $id = Auth::user()->developer()->first()->id;
         $all_crashes = DB::table('crashes')
             ->join('crash_infos','crash_infos.id','=','crashes.id')
             ->join('developers','crashes.developer_id','=','developers.id')
@@ -58,7 +59,7 @@ class DeveloperController extends Controller
         return view('developer.crashes',
             [
                 'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
-            ])->with('crashes',$all_crashes);
+            ])->with('crashes',$all_crashes)->with('id',$id);
     }
 
     public function viewBlock()
@@ -123,7 +124,80 @@ class DeveloperController extends Controller
         DB::commit();
         return redirect('developer/myprofile/');
     }
+
+    //Assign Development
+    public function assignMyself(Request $request)
+    {
+        DB::beginTransaction();
+        try{
+            $crash = Crash::where('id',$request['crash_id'])->first();
+            if ($crash==null){
+                return redirect('developer/crashes');
+            }
+            $crash['developer_id'] = Auth::user()->developer()->first()->id;
+            $crash->save();
+
+        }catch (Exception $e){
+            DB::rollback();
+            return redirect('developer/crashes/');
+        }
+
+        DB::commit();
+        return redirect('developer/crashes/');
+    }
+
+    //view edit crash
+    public function editCrash($id)
+    {
+        $crash = Crash::find($id);
+        if($crash->id == Auth::user()->developer()->first()->id)
+        {
+            return view('developer.edit_crash',[
+                'scrashes'=>'active','smycrashes'=>'deactive','sdashboard'=>'deactive','smyprofile'=>'deactive'
+            ])->with('crash', $crash);
+        }
+        return redirect('developer/crashes');
+
+    }
+
     public function test(){
         return "working";
+    }
+
+    public function unassign(Request $request)
+    {
+        DB::beginTransaction();
+        try{
+            $crash = Crash::where('id',$request['crash_id'])->first();
+            if ($crash==null){
+                return redirect('developer/crashes');
+            }
+            $crash['developer_id'] = 0;
+            $crash->save();
+
+        }catch (Exception $e){
+            DB::rollback();
+            return redirect('developer/crashes/');
+        }
+
+        DB::commit();
+        return redirect('developer/crashes/');
+    }
+
+    public function viewMycrashes()
+    {
+        $id = Auth::user()->developer()->first()->id;
+        $all_crashes = DB::table('crashes')->where('developer_id','=',$id)
+            ->join('crash_infos','crash_infos.id','=','crashes.id')
+            ->join('developers','crashes.developer_id','=','developers.id')
+            ->select(
+                'crashes.id','crash_title','progress',
+                'reporter_id','development_status','developer_id',
+                'report_created_at','name','category','crash_details'
+            )->get();
+        return view('developer.crashes',
+            [
+                'scrashes'=>'deactive','smycrashes'=>'active','sdashboard'=>'deactive','smyprofile'=>'deactive'
+            ])->with('crashes',$all_crashes)->with('id',$id);
     }
 }

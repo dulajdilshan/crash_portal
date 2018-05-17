@@ -36,7 +36,7 @@
         margin: auto;
         padding: 0;
         border: 1px solid #888;
-        width: 20%;
+        width: 50%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
@@ -159,8 +159,6 @@
                 <div class="row" style="font-size: large">
                     Are you sure want to delete Crash No: <b>{{$crash->id}}</b>?
                     <input name="crash_id" value="{{$crash->id}}" hidden>
-                </div>
-                <div class="row">
                     <div class="col-md-2"></div>
                     <button type="reset" id="no{{$crash->id}}" class="btn btn-primary" onclick="notDeleteCrash(this)">No</button>
                     <button type="submit" class="btn btn-rose" >Yes</button>
