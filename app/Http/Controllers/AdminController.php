@@ -84,6 +84,7 @@ class AdminController extends Controller
             $admin['fb_url'] = $request['fb_url'];
             $admin->user['name'] = $request['name'];
             $admin->save();
+            $admin->user->save();
 
         }catch (Exception $e){
             DB::rollback();

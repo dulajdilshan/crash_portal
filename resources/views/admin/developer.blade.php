@@ -66,7 +66,7 @@
                             <p class="category">Edit and Update</p>
                         </div>
                         <div class="card-content">
-                            <form method="post" action="{{url('developer/update-profile')}}">{{ csrf_field() }}
+                            <form method="post" action="{{url('admin/update-developer')}}">{{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group label-floating">

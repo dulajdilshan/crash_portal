@@ -1,4 +1,4 @@
-@extends('layouts.admin.admin_layout')
+@extends('layouts.developer.developer_layout')
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -61,7 +61,7 @@
                                             <button class="btn btn-primary btn-sm btn-rose" id="delete{{$crash->id}}" onclick="viewDeleteCrash(this)">
                                                 <i class="material-icons">delete</i>Delete</button>
                                             <button class="btn btn-primary btn-sm btn-warning"id="assign{{$crash->id}}" onclick="window.location.href='view-developer/{{$crash->developer_id}}'">
-                                                <i class="material-icons">rowing</i>Assign Myself</button>
+                                                <i class="material-icons">rowing</i>Go to assigned Developer</button>
                                         </td>
                                         @include('crash.view_crash')
                                     </tr>

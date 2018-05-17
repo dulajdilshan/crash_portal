@@ -46,10 +46,13 @@ Route::get('/master',function(){
 */
 
 Route::get('/developer','DeveloperController@index');
+Route::get('/developer/test','DeveloperController@test');
 Route::get('/developer/crashes','DeveloperController@viewCrashesBoard');
 Route::get('/developer/myprofile','DeveloperController@viewMyprofile');
 Route::get('/developer/dash','DeveloperController@viewDashboard');
 Route::get('/developer/mycrashes','DeveloperController@viewMycrashes');
+Route::post('developer/send','DeveloperController@send');
+Route::post('/developer/update-profile','DeveloperController@updateDeveloper');
 Route::get('/developer_block',function (){
     return view('developer_block');
 });
@@ -75,7 +78,7 @@ Route::post('admin/update-profile','AdminController@updateAdmin');
 Route::get('/admin/dash','AdminController@viewDashboard')->middleware(AuthAdmin::class);
 Route::get('/admin/developers_manager','AdminController@viewDevelopersManager')->middleware(AuthAdmin::class);
 Route::get('/admin/view-developer/{id}','AdminController@viewdeveloper');
-Route::post('developer/update-profile','AdminController@updateDeveloperProfile');
+Route::post('admin/update-developer','AdminController@updateDeveloperProfile');
 Route::post('admin/developer/delete','AdminController@deleteDeveloper');
 Route::post('admin/send','AdminController@send');
 Route::get('/admin_block','AdminController@viewBlock');
