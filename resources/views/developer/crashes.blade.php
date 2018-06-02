@@ -37,7 +37,7 @@
                                 </thead>
                                 <tbody id="myTable">
                                 @foreach($crashes as $crash)
-                                    <tr>
+                                    <tr @if($crash->developer_id==$id) bgcolor="#7fffd4" @endif>
                                         <td class="text-primary">{{$crash->id}}</td>
                                         <td><a id="{{$crash->id}}">{{$crash->crash_title}}</a></td>
                                         <td>{{$crash->report_created_at}}</td>
